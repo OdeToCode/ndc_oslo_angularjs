@@ -1,0 +1,98 @@
+﻿<html>
+<html>
+    <head>
+        <title>AngularJS Demo</title>   
+        <link href="Content/bootstrap.css" rel="stylesheet" />
+    </head>
+
+    <body data-ng-app="scopeApp" data-ng-cloak ng-init="user = { name: 'Stan'}">
+
+    <div ng-controller="SimpleController">
+        
+        {{ counter }}
+
+        {{ name }}
+        <input type="text" ng-model="name"/>
+        <hr/>
+        {{ user.name }}
+        <input type="text" ng-model="user.name" />
+
+    </div>
+    
+    <div class="well" ng-controller="SimpleController">
+
+        {{ name }}
+        <input type="text" ng-model="name" />
+        <hr />
+        {{ user.name }}
+        <input type="text" ng-model="user.name" />
+
+        <div class="well" ng-controller="SimpleController">
+
+            {{ name }}
+            <input type="text" ng-model="name" />
+            <hr />
+            {{ user.name }}
+            <input type="text" ng-model="user.name" />
+
+        </div>
+
+    </div>
+    
+   
+
+    <script src="scripts/angular.js"></script>
+
+    <script>
+        (function() {
+
+            var app = angular.module("scopeApp", []);
+            app.run(function($rootScope) {
+                $rootScope.name = "Scott";
+
+                //$rootScope.user = {                    
+                //    name: "Username"  
+                //};
+
+            });
+
+            var SimpleController = function($scope, $timeout) {
+
+
+                $scope.$watch("counter", function(oldValue, newValue) {
+                   
+                });
+
+                // or
+
+                $scope.$watch(function () {
+                    return $scope.name + counter.toString();
+                }, function (oldValue, newValue) {
+                    
+                });
+
+                $scope.counter = 0;
+
+                var incrementCounter = function() {
+
+                    $scope.counter += 1;
+                    $timeout(incrementCounter, 1000);
+                };
+            
+                $timeout(incrementCounter, 1000);
+
+
+                // $scope.name = "Scott";
+
+
+            };
+
+            app.controller("SimpleController", SimpleController);
+
+        }());
+  
+    </script>
+
+</body>
+
+</html>
