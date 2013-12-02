@@ -15,30 +15,27 @@
             
         };
 
-        var injector = angular.injector(["ng", "movieApp"]);
-
-        injector.invoke(function($http) {
-            
-        });
-
-        $scope.inject = injector.annotate(MovieListController);
+        $scope.flag = true;
 
         $scope.movies =
             movieService
                 .getAll()
-                .then(setMovies, onError);
+                .then(setMovies, onError)
+                ["finally"](function() {
+
+                });
               
         $scope.raiseAlert = function(message) {
             $window.alert(message);
         };
 
-        $scope.increment = function (movie) {
-            movie.length += 1;
+        $scope.edit = function(index) {
+            $scope.editable = {
+                index: index, 
+                movie: angular.copy($scope.movies[index])
+            };
         };
 
-        $scope.decrement = function (index) {
-            $scope.movies[index].length -= 1;
-        };
     };
 
     MovieListController.$inject = ["$scope", "$window", "movieService"];

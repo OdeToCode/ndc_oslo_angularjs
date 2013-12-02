@@ -1,0 +1,17 @@
+﻿<div ng-controller="MovieEditController">
+    <h1>Edit Movie</h1>
+    
+    <form name="editMovieForm" novalidate>
+    <input name="movieTitle"
+           type="text" ng-model="editable.movie.title" 
+           placeholder="Title" required maxlength="255" />
+        <div ng-show="editMovieForm.movieTitle.$invalid"> 
+            Error - title is invalid
+        </div>
+        
+        <input type="number" ng-model="editable.movie.length" placeholder="Length" required min="1" max="300" />
+        <button ng-click="save()" ng-disabled="editMovieForm.$invalid">Save</button>
+        <button ng-click="cancel()">Cancel</button>
+    </form>        
+</div>
+

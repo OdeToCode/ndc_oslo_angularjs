@@ -63,12 +63,15 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="index.html" />
+    <Content Include="movieApp\controllers\MovieEditController.js" />
     <Content Include="movieApp\controllers\movieListController.js" />
     <Content Include="movieApp\controllers\movieListController.min.js">
       <DependentUpon>movieListController.js</DependentUpon>
     </Content>
+    <Content Include="movieApp\filters\checkmark.js" />
     <Content Include="movieApp\movieApp.js" />
     <Content Include="movieApp\services\movieService.js" />
+    <Content Include="movieApp\templates\movieEdit.html" />
     <Content Include="scripts\angular.js" />
     <Content Include="scripts\angular.min.js" />
     <Content Include="scripts\angular.min.js.map" />
@@ -100,9 +103,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="movieApp\templates\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
