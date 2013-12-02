@@ -1,18 +1,22 @@
-﻿var MovieListController = function($scope) {
+﻿(function() {
 
-    $scope.movies =
-    [
-        { title: "Star Wars", length: 90 },
-        { title: "Star Trek", length: 120 },
-        { title: "Star Gates", length: 90 }
-    ];
+    var app = angular.module("movieApp", []);
+
+    app.config(function($httpProvider) {
+
+        $httpProvider.defaults.headers.common["x-myheader"] = "FromMovieApp";
+
+    });
+
+}());
 
 
-    $scope.increment = function(movie) {
-        movie.length += 1;
-    };
 
-    $scope.decrement = function(index) {
-        $scope.movies[index].length -= 1;
-    };
-};
+
+
+
+
+
+
+
+
