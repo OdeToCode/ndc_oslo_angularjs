@@ -4,37 +4,45 @@
     <title></title>
     <link href="Content/bootstrap.css" rel="stylesheet" />
 </head>
-    <body ng-app="movieApp">
-    
-        <div ng-controller="MovieListController">
-            
-            <button ng-click="raiseAlert('Hello!')">Say Hello</button>
-            <div ng-show="error">
-                {{ error }}
-            </div>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Length</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="movie in movies">
-                        <td>{{movie.title}}</td>
-                        <td>{{movie.length}}</td>
-                        <td>
-                            <button ng-click="increment(movie)">+ Length</button>
-                            <button ng-click="decrement($index)">- Length</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>    
+<body ng-app="movieApp" class="container">
+    <h1>Movies!</h1>
+    <pre>
+            {{ version | json }}
+        </pre>
+    {{ message }}
+
+    <div ng-controller="MovieListController">
+
+        {{ inject }}
+
+        <button class="btn" ng-click="raiseAlert('Hello!')">Say Hello</button>
+        
+        <div class="alert alert-danger alert-dismissable" ng-show="error">
+            {{ error }}
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Length</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="movie in movies">
+                    <td>{{movie.title}}</td>
+                    <td>{{movie.length}}</td>
+                    <td>
+                        <button class="btn" ng-click="increment(movie)">+ Length</button>
+                        <button class="btn" ng-click="decrement($index)">- Length</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <script src="scripts/angular.js"></script>
     <script src="movieApp/movieApp.js"></script>
-    <script src="movieApp/controllers/movieListController.js"></script>
+    <script src="movieApp/controllers/movieListController.min.js"></script>
     <script src="movieApp/services/movieService.js"></script>
 </body>
 </html>

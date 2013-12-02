@@ -24,6 +24,7 @@
             getAll: getAllMovies
         };
     };
+    movieService.$inject = ["$http", "$q"];
 
     app.factory("movieService", movieService);
 
