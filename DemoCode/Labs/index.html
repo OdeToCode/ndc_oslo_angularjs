@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body ng-app>
+    
+    <div ng-controller="MovieListController">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Length</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="movie in movies">
+                    <td>{{movie.title}}</td>
+                    <td>{{movie.length}}</td>
+                    <td>
+                        <button ng-click="increment(movie)">+ Length</button>
+                        <button ng-click="decrement($index)">- Length</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <script src="scripts/angular.js"></script>
+    <script src="movieApp/movieApp.js"></script>
+</body>
+</html>
