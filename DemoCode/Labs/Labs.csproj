@@ -69,6 +69,7 @@
       <DependentUpon>movieListController.js</DependentUpon>
     </Content>
     <Content Include="movieApp\directives\otcGreeting.js" />
+    <Content Include="movieApp\directives\rating.js" />
     <Content Include="movieApp\filters\checkmark.js" />
     <Content Include="movieApp\movieApp.js" />
     <Content Include="movieApp\services\movieService.js" />
