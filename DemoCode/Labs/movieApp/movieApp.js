@@ -1,9 +1,17 @@
 ﻿(function() {
 
-    var app = angular.module("movieApp", []);
+    var app = angular.module("movieApp", ["ngRoute"]);
 
-    app.config(function($httpProvider) {
+    app.config(function($httpProvider, $routeProvider, $locationProvider) {
+
         $httpProvider.defaults.headers.common["x-myheader"] = "FromMovieApp";
+
+        $routeProvider
+            .when("/", { templateUrl: "/movieApp/templates/listTemplate.html" })
+            .when("/details/:id", { templateUrl: "/movieapp/templates/detailsTemplate.html" })
+            .otherwise({ redirectTo: "/" });
+
+        $locationProvider.html5Mode(true);
     });
 
     var run = function($rootScope) {

@@ -1,6 +1,6 @@
 ﻿[
-	{ "title": "Star Wars",  "length": 90, "rating":5 },
-	{ "title": "Star Trek",  "length": 120, "rating":4 },
-	{ "title": "Star Gates", "length": 90, "rating":4 },
-	{ "title": "Starship Troopers", "length": 90, "rating":1 }
+	{ "id":1, "title": "Star Wars",  "length": 90, "rating":5 },
+	{ "id":2, "title": "Star Trek",  "length": 120, "rating":4 },
+	{ "id":3, "title": "Star Gates", "length": 90, "rating":4 },
+	{ "id":4, "title": "Starship Troopers", "length": 90, "rating":1 }
 ]

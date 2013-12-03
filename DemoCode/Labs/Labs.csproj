@@ -63,6 +63,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="index.html" />
+    <Content Include="movieApp\controllers\MovieDetailsController.js" />
     <Content Include="movieApp\controllers\MovieEditController.js" />
     <Content Include="movieApp\controllers\movieListController.js" />
     <Content Include="movieApp\controllers\movieListController.min.js">
@@ -73,8 +74,12 @@
     <Content Include="movieApp\filters\checkmark.js" />
     <Content Include="movieApp\movieApp.js" />
     <Content Include="movieApp\services\movieService.js" />
+    <Content Include="movieApp\templates\detailsTemplate.html" />
+    <Content Include="movieApp\templates\listTemplate.html" />
     <Content Include="movieApp\templates\movieEdit.html" />
     <Content Include="movieApp\templates\otcGreeting.html" />
+    <Content Include="scripts\angular-route.js" />
+    <Content Include="scripts\angular-route.min.js" />
     <Content Include="scripts\angular.js" />
     <Content Include="scripts\angular.min.js" />
     <Content Include="scripts\angular.min.js.map" />
@@ -86,6 +91,7 @@
     <Content Include="movieApp\controllers\movieListController.min.js.map">
       <DependentUpon>movieListController.js</DependentUpon>
     </Content>
+    <Content Include="scripts\angular-route.min.js.map" />
     <None Include="scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />

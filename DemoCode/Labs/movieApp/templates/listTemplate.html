@@ -1,0 +1,52 @@
+﻿<div ng-controller="MovieListController" class="row">
+
+    Average movie length: {{ averageLength }}
+
+
+    <div class="col-md-6">
+        <!--<button class="btn" ng-click="raiseAlert('Hello!')">Say Hello</button>-->
+
+        <div class="alert alert-danger alert-dismissable" ng-show="error">
+            {{ error }}
+        </div>
+
+        <div otc-greeting number="magicNumber" additional-text="NDC"
+             increment="doubleMagicNumber()">
+            Hello! Please transclude me!
+        </div>
+        {{ magicNumber }}
+        <button ng-click="increment()">Increment</button>
+
+        <select ng-model="predicate">
+            <option value="title">Title</option>
+            <option value="length">Length</option>
+        </select>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Length</th>
+                    <th>Rating</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="movie in movies | orderBy:predicate">
+                    <td>{{movie.title | lowercase}}</td>
+                    <td>{{movie.length}}</td>
+                    <td><div rating rating-value="movie.rating"></div></td>
+                    <td>
+                        <a class="btn" href="#/details/{{movie.id}}">Details</a>
+                        <button class="btn" ng-click="edit($index)">Edit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6" ng-show="editable.movie">
+        <div ng-include="'/movieApp/templates/movieEdit.html'">
+
+        </div>
+    </div>
+</div>
