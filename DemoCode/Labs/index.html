@@ -18,14 +18,10 @@
     <h1>Movies!</h1>
  
     
-    <script>
-        document.createElement("accordion");
-
-    </script>
     
     <div ng-controller="MovieListController" class="row">
         
-        Flag: {{ flag | checkmark }}
+        Average movie length: {{ averageLength }}
         
 
         <div class="col-md-6">
@@ -34,7 +30,14 @@
             <div class="alert alert-danger alert-dismissable" ng-show="error">
                 {{ error }}
             </div>
-            
+                      
+            <div otc-greeting number="magicNumber" additional-text="NDC"
+                    increment="doubleMagicNumber()">
+                Hello! Please transclude me!
+            </div>
+            {{ magicNumber }}
+            <button ng-click="increment()">Increment</button>
+
             <select ng-model="predicate">
                 <option value="title">Title</option>
                 <option value="length">Length</option>
@@ -67,9 +70,10 @@
     </div>
     <script src="scripts/angular.js"></script>
     <script src="movieApp/movieApp.js"></script>
-    <script src="movieApp/controllers/movieListController.min.js"></script>
+    <script src="movieApp/controllers/movieListController.js"></script>
     <script src="movieApp/services/movieService.js"></script>
     <script src="movieApp/controllers/MovieEditController.js"></script>
     <script src="movieApp/filters/checkmark.js"></script>
+    <script src="movieApp/directives/otcGreeting.js"></script>
 </body>
 </html>

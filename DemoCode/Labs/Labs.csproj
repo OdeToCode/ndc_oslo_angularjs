@@ -68,10 +68,12 @@
     <Content Include="movieApp\controllers\movieListController.min.js">
       <DependentUpon>movieListController.js</DependentUpon>
     </Content>
+    <Content Include="movieApp\directives\otcGreeting.js" />
     <Content Include="movieApp\filters\checkmark.js" />
     <Content Include="movieApp\movieApp.js" />
     <Content Include="movieApp\services\movieService.js" />
     <Content Include="movieApp\templates\movieEdit.html" />
+    <Content Include="movieApp\templates\otcGreeting.html" />
     <Content Include="scripts\angular.js" />
     <Content Include="scripts\angular.min.js" />
     <Content Include="scripts\angular.min.js.map" />

@@ -14,7 +14,7 @@
 
             $scope.movies[$scope.editable.index] = angular.copy($scope.editable.movie);
             $scope.editable.movie = null;
-
+            //$scope.computeAverageLength();
         };
 
     };

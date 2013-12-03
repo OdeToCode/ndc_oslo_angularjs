@@ -4,6 +4,29 @@
 
         var setMovies = function(response) {
             $scope.movies = response.data;
+            $scope.computeAverageLength();
+            $scope.numberOfMovies = $scope.movies.length;
+            $scope.magicNumber = 42;
+            $scope.$watch(function() {
+                return $scope.computeAverageLength();
+            });
+
+        };
+
+        $scope.doubleMagicNumber = function() {
+            $scope.magicNumber *= 2;
+        };
+
+        $scope.increment = function() {
+            $scope.magicNumber += 1;
+        };
+
+        $scope.computeAverageLength = function() {
+            var totalLength = 0;
+            for (var i = 0; i < $scope.movies.length; i++) {
+                totalLength += $scope.movies[i].length;
+            }
+            $scope.averageLength = totalLength / $scope.movies.length;
         };
 
         var onError = function(error) {
