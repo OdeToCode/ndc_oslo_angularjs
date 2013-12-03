@@ -1,0 +1,23 @@
+﻿
+input.ng-dirty.ng-invalid {
+    background-color: red;
+}
+
+input.ng-dirty.ng-valid {
+    background-color: green;
+}
+
+
+
+.visibleToggle {
+    transition: 0.5s linear all;
+    opacity: 1;
+}
+
+.visibleToggle.ng-hide {
+    opacity: 0;
+}
+
+.visibleToggle.ng-hide-add, .visibleToggle.ng-hide-remove {
+    display: block !important;
+}
