@@ -5,11 +5,14 @@ build/
 [Bb]in/
 [Oo]bj/
 *.suo
+*.mdf
+*.ldf
 *.sln.cache
 _ReSharper.*/
 *.resharper
 resharper.settings.xml
 *.user
+[Bb]uild*
 [Dd]ist
 junit-report
 junit
