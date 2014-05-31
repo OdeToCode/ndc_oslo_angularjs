@@ -4,7 +4,7 @@ Code for the NDC Oslo AngularJS Workshop
 
 The code supports two server environments: *.NET* or *Node.js*. You can use either technology as the server for the workshop. 
 
-Note: some parts of the course will be using Node.js tools regardless of the server environment you choose to work with.
+Note: some parts of the course will be using Node.js tools regardless of the server environment you choose to work with. [Node is easy to install.](http://nodejs.org/)
 
 To Use A .NET Server
 ====================
@@ -27,12 +27,12 @@ Make sure you have bower and grunt-cli installed globally.
     npm install grunt-cli -g
 ````
 
-Go to the clients folder and run:
+Go to the `clients` folder and run:
 ````
     bower install
 ````
 
-Go to the servers\node folder and run:
+Go to the `servers\node` folder and run:
 ````    
     npm install
     grunt
