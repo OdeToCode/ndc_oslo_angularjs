@@ -1,22 +1,6 @@
 ﻿(function() {
 
-    var MoviesController = function ($scope, movieService, $rootScope) {
-
-        $scope.broadcast = function(message) {
-            $rootScope.$broadcast("messageSent", { message: message });
-        };
-
-        $scope.$on("messageSent", function(event, args) {
-            $scope.eventDetails = {                
-                event: event,
-                args: args
-            };
-        });
-
-
-
-
-        $scope.version2 = $scope.version;
+    var MoviesController = function ($scope, movieService, $log) {
 
         var onMovies = function(response) {
             $scope.movies = response.data;
@@ -36,6 +20,27 @@
 
         $scope.decrease = function (movie) {
             movie.rating -= 1;
+        };
+
+        $scope.edit = function(movie) {
+            $scope.editableMovie = angular.copy(movie);
+        };
+
+        $scope.save = function(movie) {
+            movieService
+                .save(movie)
+                .then(function() {
+                    return movieService.getAll();
+                })
+                .then(function(response) {
+                    $scope.movies = response.data;
+                    $scope.editableMovie = null;
+                })
+                .catch(onError);
+        };
+
+        $scope.cancelEdit = function() {
+            $scope.editableMovie = null;
         };
     };    
 

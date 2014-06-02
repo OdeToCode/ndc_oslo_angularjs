@@ -6,3 +6,8 @@ body{
 .ng-cloak {
     display: none;
 }
+
+
+input.ng-dirty.ng-invalid {
+    background-color: red;
+}

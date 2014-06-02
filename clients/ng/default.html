@@ -16,14 +16,7 @@
     </nav>
           
     <div class="row" ng-controller="MoviesController">
-        
-        <pre>
-            {{ eventDetails | json }}
-        </pre>
-        
-        <input type="text" ng-model="message"/>
-        <button ng-click="broadcast(message)">Broadcast</button>
-
+            
         <div class="col-md-12">
             <table class="table table-condensed" ng-show="movies">
                 <thead>
@@ -44,11 +37,26 @@
                         <td>
                             <button ng-click="increase(movie)">Rating +</button>
                             <button ng-click="decrease(movie)">Rating -</button>
+                            <button ng-click="edit(movie)">Edit</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+        
+        <div ng-show="editableMovie">
+            
+            <div ng-show="movieEdit.$invalid">Currently invalid</div>
+
+            <form name="movieEdit">                
+                <input name="title" type="text" required="" ng-model="editableMovie.title" />
+                <input type="number" ng-model="editableMovie.year" />
+                <input type="number" min="1" max="5" ng-model="editableMovie.rating" />
+                <button ng-click="save(editableMovie)">Save</button>
+                <button ng-click="cancelEdit()">Cancel</button>
+            </form>
+        </div>
+
     </div>
 
     <script src="/bower_components/angular/angular.js"></script>    
