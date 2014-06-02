@@ -20,7 +20,8 @@ namespace AtTheMovies.Configuration
             apiConfiguration.MapHttpAttributeRoutes();
             apiConfiguration.Formatters.JsonFormatter.SerializerSettings.ContractResolver =
                 new CamelCasePropertyNamesContractResolver();
-            
+
+			app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(apiConfiguration);
         }
 
