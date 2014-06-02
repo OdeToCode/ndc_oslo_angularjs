@@ -14,22 +14,31 @@
             </div>
         </div>
     </nav>
-      
+          
     <div class="row" ng-controller="MoviesController">
-        {{error}}
+        
+        <pre>
+            {{ eventDetails | json }}
+        </pre>
+        
+        <input type="text" ng-model="message"/>
+        <button ng-click="broadcast(message)">Broadcast</button>
+
         <div class="col-md-12">
-            <table class="table table-condensed">
+            <table class="table table-condensed" ng-show="movies">
                 <thead>
                     <tr>
                         <th>Title</th>
                         <th>Year</th>
                         <th>Rating</th>
                         <th>Actions</th>
+
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="movie in movies">
-                        <td>{{movie.title}}</td>
+                        <td>{{movie.title}}
+                        </td>
                         <td>{{movie.year}}</td>
                         <td>{{movie.rating}}</td>
                         <td>

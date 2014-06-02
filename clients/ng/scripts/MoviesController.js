@@ -1,6 +1,22 @@
 ﻿(function() {
 
-    var MoviesController = function ($scope, movieService) {
+    var MoviesController = function ($scope, movieService, $rootScope) {
+
+        $scope.broadcast = function(message) {
+            $rootScope.$broadcast("messageSent", { message: message });
+        };
+
+        $scope.$on("messageSent", function(event, args) {
+            $scope.eventDetails = {                
+                event: event,
+                args: args
+            };
+        });
+
+
+
+
+        $scope.version2 = $scope.version;
 
         var onMovies = function(response) {
             $scope.movies = response.data;
@@ -24,8 +40,7 @@
     };    
 
     var module = angular.module("atTheMovies");
-    module.controller("MoviesController",
-        ["$scope", "movieService", MoviesController]);
+    module.controller("MoviesController", MoviesController);
 
 }());
 
