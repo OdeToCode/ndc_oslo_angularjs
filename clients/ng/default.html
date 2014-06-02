@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/ng/styles.css">
 </head>
 
-<body class="container ng-cloak" data-ng-app>
+<body class="container ng-cloak" ng-app="atTheMovies">
        
     <nav class="navbar navbar-default navbar-inverse" role="navigation">
         <div class="container-fluid">
@@ -14,52 +14,40 @@
             </div>
         </div>
     </nav>
-
-    <div class="row" ng-controller="HelloController">
-        <button ng-click="showMessage()" class="btn btn-default">Show message</button>
-        <div class="col-md-12">
-            
-            <div ng-repeat="i in [0,1,2]">
-                {{ i }} 
-            </div>
-            
-
-            <div class="alert alert-info" ng-show="alert">
-                {{ alert }}
-            </div>
-
-            {{ message }} 
-            {{ message.length }}
-            <form ng-submit="saveMessage()">
-                <input type="text" ng-model="message" />
-                <input type="submit"  value="Save" />
-            </form>
-        </div>
-    </div>
-    
+      
     <div class="row" ng-controller="MoviesController">
+        {{error}}
         <div class="col-md-12">
             <table class="table table-condensed">
                 <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Released</th>
-                        <th>Length</th>
+                        <th>Year</th>
+                        <th>Rating</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="movie in movies">
                         <td>{{movie.title}}</td>
-                        <td>{{movie.released}}</td>
-                        <td>{{movie.length}}</td>
+                        <td>{{movie.year}}</td>
+                        <td>{{movie.rating}}</td>
+                        <td>
+                            <button ng-click="increase(movie)">Rating +</button>
+                            <button ng-click="decrease(movie)">Rating -</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>    
+    <script src="scripts/atTheMovies.js"></script>
+    
     <script src="scripts/HelloController.js"></script>
+    <script src="scripts/movieService.js"></script>
+    <script src="scripts/MoviesController.js"></script>
 </body>
 
 </html>
