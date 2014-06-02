@@ -18,6 +18,15 @@
     <div class="row" ng-controller="MoviesController">
             
         <div class="col-md-12">
+            
+            <input type="text" ng-model="searchTerm" />
+            
+            <select ng-model="ordering">
+                <option value="-rating">Rating</option>
+                <option value="+year">Year</option>
+                <option value="-year">Year (descending)</option>
+            </select>
+
             <table class="table table-condensed" ng-show="movies">
                 <thead>
                     <tr>
@@ -29,7 +38,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="movie in movies">
+                    <tr ng-repeat="movie in movies | filter:{ title:searchTerm} | orderBy:ordering">
                         <td>{{movie.title}}
                         </td>
                         <td>{{movie.year}}</td>
@@ -43,18 +52,9 @@
                 </tbody>
             </table>
         </div>
-        
-        <div ng-show="editableMovie">
+              
+        <div ng-include="'views/edit.html'">
             
-            <div ng-show="movieEdit.$invalid">Currently invalid</div>
-
-            <form name="movieEdit">                
-                <input name="title" type="text" required="" ng-model="editableMovie.title" />
-                <input type="number" ng-model="editableMovie.year" />
-                <input type="number" min="1" max="5" ng-model="editableMovie.rating" />
-                <button ng-click="save(editableMovie)">Save</button>
-                <button ng-click="cancelEdit()">Cancel</button>
-            </form>
         </div>
 
     </div>
@@ -65,6 +65,7 @@
     <script src="scripts/HelloController.js"></script>
     <script src="scripts/movieService.js"></script>
     <script src="scripts/MoviesController.js"></script>
+    <script src="scripts/allJson.js"></script>
 </body>
 
 </html>
