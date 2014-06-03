@@ -2,7 +2,7 @@
 
     <div ng-show="movieEdit.$invalid">Currently invalid</div>
 
-    <form name="movieEdit">
+    <form name="movieEdit" id="editForm">
         <input name="title" type="text" required="" ng-model="editableMovie.title" />
         <input name="year" type="number" ng-model="editableMovie.year" />
         <input name="rating" type="number" min="1" max="5" ng-model="editableMovie.rating" />

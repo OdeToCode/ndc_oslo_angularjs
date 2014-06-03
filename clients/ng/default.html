@@ -16,8 +16,25 @@
     </nav>
           
     <div class="row" ng-controller="MoviesController">
-            
+                 
         <div class="col-md-12">
+            
+            
+            <div contenteditable ng-model="myContent">
+                Some content
+            </div>
+           
+            <div ng-repeat="alert in alerts">
+                <alert type="{{alert.type}}" 
+                       reason="alert.reason" 
+                       close="closeAlert($index)">
+                    <div>{{alert.message}}</div>
+                </alert>                
+            </div>
+            
+                <br/>
+
+            <button ng-click="changeAlert()">Change Alert</button>                     
             
             <input type="text" ng-model="searchTerm" />
             
@@ -60,10 +77,13 @@
     </div>
 
     <script src="/bower_components/angular/angular.js"></script>    
-    <script src="scripts/atTheMovies.js"></script>
     
-    <script src="scripts/HelloController.js"></script>
     <script src="scripts/movieService.js"></script>
+
+    <script src="scripts/atTheMovies.js"></script>
+    <script src="scripts/alert.js"></script>
+    <script src="scripts/HelloController.js"></script>
+    
     <script src="scripts/MoviesController.js"></script>
     <script src="scripts/allJson.js"></script>
 </body>

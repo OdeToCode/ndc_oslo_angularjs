@@ -1,15 +1,40 @@
 ﻿(function() {
 
-    var MoviesController = function ($scope, movieService, $log) {
+    var MoviesController = function (
+            $scope, movieService,
+            $log, $location, $anchorScroll) {
 
-        var onMovies = function(response) {
-            $scope.movies = response.data;
+
+        $scope.closeAlert = function(index) {
+            $scope.alerts.splice(index, 1);
+        };
+
+        $scope.alerts = [
+            {
+                type: "warning",
+                message: "This is a warning from MovieController",
+                reason: ""
+            },
+            {
+                type: "info",
+                message: "This is some information",
+                reason: ""
+            }
+        ];
+
+        var onMovies = function(movies) {
+            $scope.movies = movies;
         };
 
         var onError = function(reason) {
-            $scope.error = "There was a problem";
+            $scope.error = reason;
         };
 
+
+        $scope.createError = function() {
+            throw "oops!!!";
+        };
+       
         movieService.getAll()
             .then(onMovies, onError);
                          
@@ -24,6 +49,8 @@
 
         $scope.edit = function(movie) {
             $scope.editableMovie = angular.copy(movie);
+            $location.hash("editForm");
+            $anchorScroll();
         };
 
         $scope.save = function(movie) {
