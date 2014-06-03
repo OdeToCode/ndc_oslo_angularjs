@@ -46,29 +46,6 @@
         $scope.decrease = function (movie) {
             movie.rating -= 1;
         };
-
-        $scope.edit = function(movie) {
-            $scope.editableMovie = angular.copy(movie);
-            $location.hash("editForm");
-            $anchorScroll();
-        };
-
-        $scope.save = function(movie) {
-            movieService
-                .save(movie)
-                .then(function() {
-                    return movieService.getAll();
-                })
-                .then(function(response) {
-                    $scope.movies = response.data;
-                    $scope.editableMovie = null;
-                })
-                .catch(onError);
-        };
-
-        $scope.cancelEdit = function() {
-            $scope.editableMovie = null;
-        };
     };    
 
     var module = angular.module("atTheMovies");

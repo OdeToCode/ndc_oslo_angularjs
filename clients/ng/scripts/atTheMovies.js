@@ -15,7 +15,13 @@
             })
             .when("/edit/:id", {                
                 templateUrl: "views/edit.html",
-                controller: "MovieEditController"
+                controller: "MovieEditController",
+                resolve: {
+                    editableMovie: function(movieService, $route) {
+                        var id = $route.current.params.id;
+                        return movieService.getById(id);
+                    }
+                }
             })
             .otherwise({                
                 redirectTo: "/list" 

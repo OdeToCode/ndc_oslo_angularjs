@@ -11,10 +11,7 @@
                 reason: "=",
                 close: "&"
             },
-            replace: true,
-            controller: function(scope, element, attributes) {
-                
-            },
+            replace: true,           
             templateUrl: "views/alert.html"           
         };
     });

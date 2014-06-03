@@ -37,6 +37,7 @@
                         }
                     },
                     save: function (movie) {
+                        movies = null;
                         return $http.put(url, movie);
                     }
                 };
