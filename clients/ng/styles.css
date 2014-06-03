@@ -3,6 +3,24 @@ body{
 	background-color: #ccccbb;
 }
 
+.ng-hide {
+    -webkit-animation: fadeOutLeftBig 1s;
+    -moz-animation: fadeOutLeftBig 1s;
+    -ms-animation: fadeOutLeftBig 1s;
+    -o-animation: fadeOutLeftBig 1s;
+    animation: fadeOutLeftBig 1s;
+    display: block !important;
+}
+
+.ng-enter {
+    -webkit-animation: fadeInDown 2s;
+    -moz-animation: fadeInDown 2s;
+    -ms-animation: fadeInDown 2s;
+    -o-animation: fadeInDown 2s;
+    animation: fadeInDown 2s;
+}
+
+
 .ng-cloak {
     display: none;
 }

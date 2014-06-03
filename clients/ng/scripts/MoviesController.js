@@ -9,6 +9,11 @@
             $scope.alerts.splice(index, 1);
         };
 
+        $scope.showMessage = true;
+        $scope.hideMessage = function() {
+            $scope.showMessage = false;
+        };
+
         $scope.alerts = [
             {
                 type: "warning",

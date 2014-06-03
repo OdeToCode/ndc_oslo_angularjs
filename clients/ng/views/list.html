@@ -1,6 +1,11 @@
 ﻿<div class="row">
 
     <div class="col-md-12">
+        
+        <div ng-show="showMessage">
+            Message: Hello!
+            <button ng-click="hideMessage()">Hide</button>
+        </div>
 
         <div ng-repeat="alert in alerts">
             <alert type="{{alert.type}}"

@@ -1,7 +1,7 @@
 ﻿(function() {
 
     var module = angular.module("atTheMovies",
-        ["ngRoute", "atTheMovies.data"]);
+        ["ngRoute", "atTheMovies.data", "ngAnimate"]);
 
     module.config(function (movieServiceProvider) {
         movieServiceProvider.setRootUrl("/api/movies");
