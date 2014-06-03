@@ -16,6 +16,13 @@
 
                 return {
 
+                    getById: function(id) {
+                        return $http.get(url + "/" + id)
+                                    .then(function(response) {
+                                        return response.data;
+                                    });
+                    },
+
                     getAll: function () {
 
                         if (movies) {

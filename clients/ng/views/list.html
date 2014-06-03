@@ -1,0 +1,53 @@
+﻿<div class="row">
+
+    <div class="col-md-12">
+
+        <div ng-repeat="alert in alerts">
+            <alert type="{{alert.type}}"
+                   reason="alert.reason"
+                   close="closeAlert($index)">
+                <div>{{alert.message}}</div>
+            </alert>
+        </div>
+
+        <br />
+
+        <input type="text" ng-model="searchTerm" />
+
+        <select ng-model="ordering">
+            <option value="-rating">Rating</option>
+            <option value="+year">Year</option>
+            <option value="-year">Year (descending)</option>
+        </select>
+
+        <table class="table table-condensed" ng-show="movies">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Rating</th>
+                    <th>Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="movie in movies | filter:{ title:searchTerm} | orderBy:ordering">
+                    <td>
+                        {{movie.title}}
+                    </td>
+                    <td>{{movie.year}}</td>
+                    <td>{{movie.rating}}</td>
+                    <td>
+                        <button ng-click="increase(movie)">Rating +</button>
+                        <button ng-click="decrease(movie)">Rating -</button>
+                        <!--<button ng-click="edit(movie)">Edit</button>-->
+                        
+                        <a class="btn btn-default" href="#/edit/{{movie.id}}">Edit</a>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+ 
+</div>

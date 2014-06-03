@@ -1,6 +1,6 @@
 ﻿(function() {
 
-    var MoviesController = function (
+    var MovieListController = function (
             $scope, movieService,
             $log, $location, $anchorScroll) {
 
@@ -72,7 +72,7 @@
     };    
 
     var module = angular.module("atTheMovies");
-    module.controller("MoviesController", MoviesController);
+    module.controller("MovieListController", MovieListController);
 
 }());
 
